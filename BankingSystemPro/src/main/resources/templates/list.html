@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{/style.css}" rel="stylesheet" />
+    <script type="text/javascript" th:src="@{/script.js}"></script>
+</head>
+<body>
+<h1>List of Accounts</h1>
+
+<table>
+    <tr th:each="account: ${accounts}">
+
+            <td sec:authorize="hasAuthority('USER')">
+                <a th:href="|/account/${account.accountID}|" onclick="sendDelete(event);">DELETE</a>
+<!--                <form th:action="|/account/${account.accountID}|"  th:method="DELETE">-->
+<!--                    <button type="submit">DELETE</button>-->
+<!--                </form>-->
+            </td>
+            <td th:text="${account.accountID}" />
+
+        <td th:text="${account.name}" />
+        <td th:text="${account.balance}" />
+    </tr>
+</table>
+</body>
+</html>

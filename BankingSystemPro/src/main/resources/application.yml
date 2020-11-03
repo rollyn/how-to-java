@@ -1,5 +1,8 @@
 server:
   port: 5000
+  error:
+    whitelabel:
+      enabled: false
 
 spring:
   datasource:
@@ -14,9 +17,7 @@ spring:
   h2:
     console:
       enabled: true
-
-#spring:
-#  mvc:
-#    hiddenmethod:
-#      filter:
-#        enabled: true
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true

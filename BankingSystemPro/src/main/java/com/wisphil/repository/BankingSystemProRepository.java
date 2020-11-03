@@ -11,4 +11,7 @@ public interface BankingSystemProRepository extends CrudRepository<Account, Stri
     List<Account> findByType(String t);
     Account findByNameAndType(String name, String type);
     List<Account> findByBalanceGreaterThan(Double balance);
+
+    List<Account> findAll();
+
 }

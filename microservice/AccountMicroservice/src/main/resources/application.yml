@@ -1,0 +1,29 @@
+server:
+  port: 5001
+
+spring:
+  application:
+    name: Account
+  boot:
+    admin:
+      client:
+        url: http://localhost:8763
+      api-path: /instances
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    preferIpAddress: true
+
+management:
+  security:
+    enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always

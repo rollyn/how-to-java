@@ -1,0 +1,26 @@
+server:
+  port: 8762
+
+spring:
+  application:
+    name: ZuulProxy
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    preferIpAddress: true
+
+zuul:
+  routes:
+    account:
+      path: /api/v1/account/**
+      serviceId: account
+    transaction:
+      path: /api/v1/transaction/**
+      serviceId: transaction
+
+jwt:
+  security:
+    key: j3H5Ld5nYmGWyULy6xwpOgfSH++NgKXnJMq20vpfd+8=t
